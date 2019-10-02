@@ -7,14 +7,12 @@ import thunk from 'redux-thunk';
 // import combineReducers from './reducers/combineReducer';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
 const store = createStore(
 //   combineReducers,
   compose(
   applyMiddleware(thunk),
-    //delete this for IE
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+
   )
 );
 ReactDOM.render(
@@ -27,5 +25,3 @@ ReactDOM.render(
 );
 
 module.hot.accept();
-
-serviceWorker.unregister();
