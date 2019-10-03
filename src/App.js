@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Header } from "./header/header";
-// import { countryContainer } from './containers/countyContainer';
+import { StartPage } from "./start-page/start-page.component";
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
       <React.Fragment>
         <Route component={Header} />
         <Switch>
-          {/* <Route exact path='/' component={countryContainer} /> */}
+          <Route exact path='/' component={StartPage} />
         </Switch>
       </React.Fragment>
     );
