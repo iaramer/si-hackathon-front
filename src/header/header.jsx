@@ -7,10 +7,10 @@ export class Header extends React.PureComponent {
 	 render() {
 		return (
 			<div className="header">
-				<span>fffffff
+				<span>
 					<img src={logo} className="logo" alt='logo'/>
 				</span>
-				
+				<span>CHECK YOURSELF</span>
 				<div>User Stub</div>
 			</div>
 		);
