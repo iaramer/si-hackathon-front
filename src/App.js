@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import { Header } from "./header/header";
-import { StartPage } from "./start-page/start-page.component";
+import { Header } from "./components/header/header";
+import { StartPage } from "./containers/start-page/start-page.component";
 
 class App extends Component {
   render() {
