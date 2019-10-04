@@ -1,15 +1,13 @@
 import * as React from 'react';
-
-import  './start-page.scss';
-import { ProjectCard } from './project-card/project-card.component';
 import Load from '../requires'
 
-export class StartPage extends React.PureComponent {
-	// constructor(p) {
-	// 	super(p);
 
-	// 	p.getProjects();
-	// }
+import "./start-page.scss";
+import { ProjectCard } from  "../../components/project-card/project-card.component";
+
+export class StartPage extends React.PureComponent {
+  // constructor(p) {
+  // 	super(p);
 
 	state = {
 		testText: ''
@@ -34,7 +32,9 @@ export class StartPage extends React.PureComponent {
 					</div>
 					</div>
 					<div className='containerCard'>
-						<ProjectCard/>
+		          {/* <Link to={'/topic/' + id}> */}
+              <ProjectCard />
+          {/* </Link> */}
 						<h1> Text: {this.state.testText} </h1>
 						{/* {this.props.language ? this.language : this.Nolanguage} */}
 					</div>
@@ -42,8 +42,7 @@ export class StartPage extends React.PureComponent {
 		);
 	}
 
-
-	 get noLanguages() {
-		return <span>No language available</span>;
-	}
+  get noLanguages() {
+    return <span>No language available</span>;
+  }
 }
