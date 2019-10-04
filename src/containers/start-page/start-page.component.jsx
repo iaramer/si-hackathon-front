@@ -1,5 +1,7 @@
 import * as React from "react";
 import { getLanguages } from "../requires";
+import { Link } from "react-router-dom";
+
 
 import "./start-page.scss";
 import { ProjectCard } from "../../components/project-card/project-card.component";
@@ -58,16 +60,15 @@ export class StartPage extends React.PureComponent {
 	}
 
 	get exams() {
-		return (
-			this.state.languages.map(language => {
-				<Link to={`/topics/`}>
+		return this.state.languages.map(language => 
+				<Link to={`/topics/`} key={language.id}>
 					<ProjectCard
 						key={language.id}
 						name={language.languageType}
 						body={language.description}
 					/>
 				</Link>
-			}))
+		)
 	}
 
 	get noLanguages() {
