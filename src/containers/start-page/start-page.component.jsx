@@ -13,11 +13,11 @@ export class StartPage extends React.PureComponent {
 		testText: ''
 	}
 
-	loadText = Load.testReq.bind(this);
+	// loadText = Load.testReq.bind(this);
 
-	componentDidMount() {
-		this.loadText()
-	}
+	// componentDidMount() {
+	// 	this.loadText()
+	// }
 
 	render() {
 		return (

@@ -1,17 +1,16 @@
 import * as React from "react";
 
-import "./project-card.scss";
 
-export const ProjectCard = props => {
-  const { name, body } = props;
+export const Page = props => {
+
 
   return (
     <div className="card">
       <div className="name_container">
-        <span className="name"> {name}</span>
+        <span className="name"> h</span>
       </div>
       description
-      {body}
+
     </div>
   );
 };
