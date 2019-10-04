@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import logo from '../common/logo.png';
+import logo from '../../common/logo.png';
 import  './header.scss';
 
 export class Header extends React.PureComponent {
