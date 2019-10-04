@@ -38,7 +38,6 @@ export class TopicsPage extends React.PureComponent {
   }
 
   get topic() {
-    debugger;
     return this.state.topics.map(topic => {
       return (
         <Link to={`/topic/${topic.id}`}>
