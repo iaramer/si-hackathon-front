@@ -22,7 +22,7 @@ export const getQuestion = topicId => {
     .catch(error => new Error(error));
 };
 
-export const postAnswer = (topicId, body) => {
+export const postAnswer = (body) => {
   console.log(body);
   return fetch(`${url}/evaluatedAnswers`, {
     method: "POST",
@@ -31,7 +31,7 @@ export const postAnswer = (topicId, body) => {
     },
     body: JSON.stringify(body)
   })
-    .then(response => {
+    .then(response => { 
       return response.json();
     })
     .then(result => result)
