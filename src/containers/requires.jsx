@@ -1,7 +1,7 @@
 const url = "http://10.66.169.253:8080";
 
 export const getTopic = (examId, langId) => {
-  return fetch(`${url}/topics?examId=${examId}&langId=${langId}`, {
+  return fetch(`${url}/topics?examId=${examId}&languageId=${langId}`, {
     method: "GET"
   })
     .then(response => response.json())

@@ -9,8 +9,8 @@ export class TopicsPage extends React.PureComponent {
     topics: []
   };
 
-  getTopic = () => {
-    getTopic().then(data => {
+  getTopic = (examId, langId) => {
+    getTopic(examId, langId).then(data => {
       this.setState({
         topics: data
       });
@@ -18,10 +18,12 @@ export class TopicsPage extends React.PureComponent {
   };
 
   componentDidMount() {
-    debugger
-    console.log(this.props);
-    
-    // this.getTopic(examId, langId);
+    console.log(this.props.match.params);
+
+    this.getTopic(
+      this.props.match.params.examId,
+      this.props.match.params.langId
+    );
   }
 
   render() {
@@ -43,10 +45,11 @@ export class TopicsPage extends React.PureComponent {
     return this.state.topics.map(topic => {
       return (
         <Link to={`/topic/${topic.id}`} key={topic.id}>
-          <ProjectCard 
-            key={topic.id} 
-            name={topic.title} 
-            body={topic.body} />
+          <ProjectCard
+            key={topic.id}
+            name={topic.topicName}
+            body={topic.description}
+          />
         </Link>
       );
     });
