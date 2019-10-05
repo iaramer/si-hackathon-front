@@ -23,7 +23,7 @@ class InfoPageRender extends Component {
   
   render() {
     const { id, errors, title, body } = this.props 
-    
+    const { materials } = this.state;
 
     return (
       <div className="workspace__start">
@@ -54,12 +54,25 @@ class InfoPageRender extends Component {
         </div>
 
         <div className="infopage-description">
-            <Materials id = {id} />
-            {this.state.materials.map((e)=>console.log(e))}
+          {
+            materials.length ? <Materials materials = {materials} /> : null
+          }
         </div>
       </div>
     );
   }
+
+  /* get material() {
+		return this.state.languages.map(language => 
+				<Link to={`/language:${language.id}/topics:${this.state.examId}`} key={language.id}>
+					<ProjectCard
+						key={language.id}
+						name={language.languageType}
+						body={language.description}
+					/>
+				</Link>
+		)
+	} */
 }
 
 export default InfoPageRender;
