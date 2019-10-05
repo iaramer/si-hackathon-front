@@ -18,7 +18,7 @@
   display: flex;
   font-weight: 600;
   flex-direction: column;
-  width: 50%;
+  width: 30%;
 }
 .saveButton {
   height: 35px;
@@ -35,4 +35,5 @@
   justify-self: unset;
   background-color: #cadd54;
   align-self: flex-start;
+  cursor: pointer;
 }

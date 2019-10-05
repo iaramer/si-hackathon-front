@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import InfoPageRender from '../../components/info-render/info-page-render.component';
 /* import PokemonInfoRender from '../components/pokemonInfoRender' */
 
-class PageInfo extends Component {
+export class PageInfo extends Component {
 
   state = {
     id: this.props.match.params.id,
