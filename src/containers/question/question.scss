@@ -1,0 +1,38 @@
+.title {
+  margin: auto;
+  margin-top: 25px !important;
+}
+.questionBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  span {
+    padding-bottom: 10px;
+  }
+  textarea {
+    width: 90%;
+  }
+}
+.nameBlock {
+  display: flex;
+  font-weight: 600;
+  flex-direction: column;
+  width: 50%;
+}
+.saveButton {
+  height: 35px;
+  width: 100px;
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid #b1b1b1;
+  color: white;
+  justify-self: unset;
+  background-color: #cadd54;
+  align-self: flex-start;
+}
