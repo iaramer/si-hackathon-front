@@ -1,6 +1,6 @@
 /* Class, which renders pokemon info page. */
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+
 
 /* import { Button, Container, Row } from 'reactstrap' */
 import "./material.scss";

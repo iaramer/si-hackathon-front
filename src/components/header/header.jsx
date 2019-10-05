@@ -11,7 +11,7 @@ export class Header extends React.PureComponent {
 				<span>
 					<img src={logo} className="logo" alt='logo'/>
 				</span>
-				<span>CHECK YOURSELF</span>
+				<h3>E V A L</h3>
 
 				<div>User Stub</div>
 			</div>

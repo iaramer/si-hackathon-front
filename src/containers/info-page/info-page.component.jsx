@@ -4,6 +4,7 @@ import InfoPageRender from '../../components/info-render/info-page-render.compon
 
 export class PageInfo extends Component {
 
+
   state = {
     id: this.props.match.params.id,
     errors: ''
@@ -26,6 +27,7 @@ export class PageInfo extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props, this.props.name);
     this.loadInfo();
   }
 

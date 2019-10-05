@@ -10,7 +10,6 @@ export const ProjectCard = props => {
       <div className="name_container">
         <span className="name"> {name}</span>
       </div>
-        description
       {body}
     </div>
   );

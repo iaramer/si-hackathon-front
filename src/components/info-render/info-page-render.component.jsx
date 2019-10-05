@@ -13,7 +13,7 @@ class InfoPageRender extends Component {
 
   getMaterials = id => {
 		getMaterials(id).then(data => {
-			console.log(data);
+			console.log(data, data[0]);
       
 			this.setState({
 				materials: data

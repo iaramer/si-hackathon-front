@@ -44,7 +44,12 @@ export class TopicsPage extends React.PureComponent {
   get topic() {
     return this.state.topics.map(topic => {
       return (
-        <Link to={`/topic/${topic.id}`} key={topic.id}>
+        <Link
+          to={`/topic/${topic.id}`}
+          key={topic.id}
+          name={topic.topicName}
+          body={topic.description}
+        >
           <ProjectCard
             key={topic.id}
             name={topic.topicName}
