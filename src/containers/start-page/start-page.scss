@@ -2,12 +2,15 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  
+
+
   .first-block {
     height: 60%;
     padding: 20px 10px;
     width: 100%;
-    border-bottom: 25px solid #76cdd8;
+    border-bottom: 25px solid #76cdd8; 
+     width: 80%;
+  margin: auto;
   }
 
   .button_container {

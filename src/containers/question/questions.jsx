@@ -1,25 +1,26 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
+import { getQuestion } from "../requires";
 import "./question.scss";
 
 export class Question extends React.PureComponent {
   state = {
-    topics: []
+    questions: []
   };
 
-  //   getTopic = () => {
-  //     getTopic().then(data => {
-  //       this.setState({
-  //         topics: data
-  //       });
-  //     });
-  //   };
+    getQuestion = () => {
+      getQuestion().then(data => {
+        this.setState({
+          questions: data
+        });
+      });
+    };
 
   componentDidMount() {
     console.log(this.props);
 
-    // this.getQuestion(examId, langId);
+    // this.getQuestion(topicId);
   }
 
   render() {
@@ -30,26 +31,30 @@ export class Question extends React.PureComponent {
           <textarea />
         </div>
         <h2 className="title">Topic title</h2>
-        <div className="questionBlock">
+        <div className="questionBlock" >
           <span>question</span>
-          <textarea />
+          <textarea 
+          id={1}
+          rows={5}
+          name="answer"
+          placeholder="Write your answer"/>
         </div>
-        <div className="questionBlock">
+        <div className="questionBlock" id={2}>
           <span>question</span>
           <textarea
             rows={5}
             name="answer"
             placeholder="Write your answer"
-            // value={textLabel || ''}
-            // onChange={this.setAnswer}
           />
-          <button className="saveButton assesment">save </button>
+          <button className="saveButton assesment" onClick={this.setAnswer}>save </button>
         </div>
       </div>
     );
   }
 
-  //   get topic() {
-
-  //   }
+  setAnswer = (e) => {
+    // document.getElementById(1).value
+    console.log( document.getElementById(1).value, 'i');
+    
+  };
 }
