@@ -22,8 +22,11 @@ class InfoPageRender extends Component {
   };
   
   render() {
-    const { id, errors, title, body } = this.props 
+/*     const { id, title, body } = this.props 
+ */
     const { materials } = this.state;
+    const {id} = this.props;
+    console.log(this.props, materials, id)
 
     return (
       <div className="workspace__start">
@@ -32,8 +35,8 @@ class InfoPageRender extends Component {
             <img src={descriptionLogo} className="logo" alt='logo'/>
           </div>
           <div className="infopage__rightside"> 
-            <h2 className="infopage__rightside-title">{title}</h2>
-            <span>{body}</span>
+            {/* <h2 className="infopage__rightside-title">{title}</h2>
+            <span>{body}</span> */}
           </div>
         </div>
 
@@ -55,7 +58,7 @@ class InfoPageRender extends Component {
 
         <div className="infopage-description">
           {
-            materials.length ? <Materials materials = {materials} /> : null
+            materials.length ? <Materials materials = {this.props} /> : null
           }
         </div>
       </div>
