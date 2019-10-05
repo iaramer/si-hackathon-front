@@ -18,7 +18,10 @@ export class TopicsPage extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.getTopic();
+    debugger
+    console.log(this.props);
+    
+    // this.getTopic(examId, langId);
   }
 
   render() {

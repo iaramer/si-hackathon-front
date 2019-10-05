@@ -8,7 +8,8 @@ import { ProjectCard } from "../../components/project-card/project-card.componen
 
 export class StartPage extends React.PureComponent {
 	state = {
-		languages: []
+		languages: [],
+		examId: '',
 	};
 
 	componentDidMount() {
@@ -17,8 +18,11 @@ export class StartPage extends React.PureComponent {
 
 	getLanguages = type => {
 		getLanguages(type).then(data => {
+			console.log(data);
+			
 			this.setState({
-				languages: data
+				languages: data,
+				examId: type
 			});
 		});
 	};
@@ -39,14 +43,14 @@ export class StartPage extends React.PureComponent {
 
 						<button
 							className="start_button exam"
-							onClick={this.getLectureExams}
+							onClick={() => this.getLanguages("Lectures")}
 						>
 							Lectures exam
             			</button>
 
 						<button
 							className="start_button assesment"
-							onClick={this.getAssesment}
+							onClick={() => this.getLanguages("Assesment")}
 						>
 							Assesment
             			</button>
@@ -61,7 +65,7 @@ export class StartPage extends React.PureComponent {
 
 	get exams() {
 		return this.state.languages.map(language => 
-				<Link to={`/topics/`} key={language.id}>
+				<Link to={`/language:${language.id}/topics:${this.state.examId}`} key={language.id}>
 					<ProjectCard
 						key={language.id}
 						name={language.languageType}
