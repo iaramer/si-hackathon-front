@@ -5,9 +5,15 @@ import "./question.scss";
 
 export class Question extends React.Component {
   state = {
+    name: '',
     questions: [],
     answers: []
   };
+
+  /* constructor() {
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  } */
 
   getQuestion = () => {
     getQuestion(this.props.match.params.id).then(data => {
@@ -19,7 +25,6 @@ export class Question extends React.Component {
 
   postAnswer = body => {
     postAnswer(this.props.match.params.id, body).then(data => {
-      console.log(data);
       this.setState({
         answers: data
       });
@@ -27,7 +32,7 @@ export class Question extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
+    //console.log(this.props);
 
     this.getQuestion();
   }
@@ -37,15 +42,27 @@ export class Question extends React.Component {
     }
   }
 
+  handleChange = (event) =>
+    this.setState({name: event.target.value});
+  
+
+  handleSubmit = (event) => {
+    console.log('Отправленное имя: ' + this.state.name);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className="workspace__start">
-        <div className="nameBlock">
-          <span>Please enter your name</span>
-          <textarea />
-        </div>
-        <h2 className="title">Topic title</h2>
-        {this.question}
+          <div className="nameBlock">
+            <span>Please enter your name</span>
+            <textarea
+              id={`name`}
+              rows={5}
+              name="answer"
+              placeholder="Write your answer"
+            />
+          </div>
 
         <button className="saveButton assesment" onClick={this.setAnswer}>
           save
@@ -65,30 +82,27 @@ export class Question extends React.Component {
     );
   }
 
-  setAnswer = e => {
-    console.log(document.getElementById(1).value);
+  setAnswer = (e, id) => {
+    const textareaList = document.querySelectorAll("textarea");
+    const mass = [...textareaList];
     const answer = [];
-    answer.push({ id: 1, answer: document.getElementById(1).value });
+    const body = {};
 
-    console.log(answer);
-    const body = {
-      answers: [
-        {
-          answer: "ghh",
-          questionId: "2"
-        },
-        {
-          answer: "ghh",
-          questionId: "2"
-        }
-      ],
-      studentName: "Mike"
-    };
+
+    mass.map((e)=> {
+      console.log(e.id, e.value)  
+      e.id === 'name' ? 
+        body.studentName = e.value :
+      answer.push({ answer: e.value, questionId: e.id })
+      body.answer = answer;
+    
+    })  
     this.postAnswer(body);
-  };
+  }
 
   get question() {
     return this.state.questions.map(qes => {
+      console.log(qes)
       return (
         <div className="questionBlock" key={qes.id}>
           <span>{qes.questionText}</span>
