@@ -6,16 +6,25 @@ import "./question.scss";
 
 export class Question extends React.PureComponent {
   state = {
-    questions: []
+    questions: [],
+    answer: []
   };
 
-    getQuestion = () => {
-      getQuestion().then(data => {
-        this.setState({
-          questions: data
-        });
+  getQuestion = () => {
+    getQuestion().then(data => {
+      this.setState({
+        questions: data
       });
-    };
+    });
+  };
+
+  // postAnswer = (body) => {
+  //   getQuestion(body).then(data => {
+  //     this.setState({
+  //       answer: data
+  //     });
+  //   });
+  // };
 
   componentDidMount() {
     console.log(this.props);
@@ -31,30 +40,35 @@ export class Question extends React.PureComponent {
           <textarea />
         </div>
         <h2 className="title">Topic title</h2>
-        <div className="questionBlock" >
-          <span>question</span>
-          <textarea 
-          id={1}
-          rows={5}
-          name="answer"
-          placeholder="Write your answer"/>
-        </div>
-        <div className="questionBlock" id={2}>
+        <div className="questionBlock">
           <span>question</span>
           <textarea
+            id={1}
             rows={5}
             name="answer"
             placeholder="Write your answer"
           />
-          <button className="saveButton assesment" onClick={this.setAnswer}>save </button>
+        </div>
+        <div className="questionBlock">
+          <span>question</span>
+          <textarea
+            id={2}
+            rows={5}
+            name="answer"
+            placeholder="Write your answer"
+          />
+          <button className="saveButton assesment" onClick={this.setAnswer}>
+            save{" "}
+          </button>
         </div>
       </div>
     );
   }
 
-  setAnswer = (e) => {
-    // document.getElementById(1).value
-    console.log( document.getElementById(1).value, 'i');
-    
+  setAnswer = e => {
+    console.log(document.getElementById(1).value);
+    const answer = [];
+    answer.push({ id: 1, answer: document.getElementById(1).value });
+    console.log(answer);
   };
 }
