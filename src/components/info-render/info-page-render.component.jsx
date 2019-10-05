@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getMaterials } from "../../containers/requires";
 import descriptionLogo from './courses.png' 
 import Materials from '../material/material.component';
@@ -45,11 +45,11 @@ class InfoPageRender extends Component {
               Learn
           </button>
 
-          <button 
-            className="start_button assesment"
-            onClick={()=> getMaterials(id)}>
-              Pass exam
-          </button>
+          <Link to="/question" >
+            <button className="start_button assesment">
+              Exams
+            </button>
+          </Link>
 
         </div>
 
