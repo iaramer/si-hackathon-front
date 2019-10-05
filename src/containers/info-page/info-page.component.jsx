@@ -33,5 +33,3 @@ export class PageInfo extends Component {
     return <InfoPageRender {...this.state} />//<PokemonInfoRender {...this.state} />
   }
 }
-
-export default PageInfo;

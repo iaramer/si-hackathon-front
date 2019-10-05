@@ -1,18 +1,30 @@
-/* Class, which renders pokemon info page. */
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-/* import { Button, Container, Row } from 'reactstrap' */
-
-import "./info-page.scss";
+import { getMaterials } from "../../containers/requires";
 import descriptionLogo from './courses.png' 
-
-//import NotFound from './NotFound/NotFound';
+import Materials from '../material/material.component';
+import "./info-page.scss";
 
 class InfoPageRender extends Component {
- 
+  
+  state = {
+    materials: []
+  }
+
+  getMaterials = id => {
+		getMaterials(id).then(data => {
+			console.log(data);
+			
+			this.setState({
+				materials: data
+			});
+		});
+  };
+  
   render() {
     const { id, errors, title, body } = this.props 
-    
+    const { materials } = this.state;
+
     return (
       <div className="workspace__start">
         <div className="infopage">
@@ -26,15 +38,41 @@ class InfoPageRender extends Component {
         </div>
 
         <div className="button_container">
-          <button className="start_button exam">Learn</button>
-          <button className="start_button assesment">Pass exam</button>
+          
+          <button
+            className="start_button exam"
+            onClick={()=> this.getMaterials(id)}>
+              Learn
+          </button>
+
+          <button 
+            className="start_button assesment"
+            onClick={()=> getMaterials(id)}>
+              Pass exam
+          </button>
+
         </div>
-        <div className="discription">
-          ffsdfsdfdsffsdfsdf
+
+        <div className="infopage-description">
+          {
+            materials.length ? <Materials materials = {materials} /> : null
+          }
         </div>
       </div>
     );
   }
+
+  /* get material() {
+		return this.state.languages.map(language => 
+				<Link to={`/language:${language.id}/topics:${this.state.examId}`} key={language.id}>
+					<ProjectCard
+						key={language.id}
+						name={language.languageType}
+						body={language.description}
+					/>
+				</Link>
+		)
+	} */
 }
 
 export default InfoPageRender;

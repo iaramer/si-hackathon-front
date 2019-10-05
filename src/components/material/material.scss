@@ -1,0 +1,13 @@
+.material {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #e6f7ff;
+
+    &-text {
+        text-align: center;
+    }
+
+    span {
+        font-weight: bold;
+    }
+}
