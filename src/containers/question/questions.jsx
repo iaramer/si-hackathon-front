@@ -11,7 +11,9 @@ export class Question extends React.PureComponent {
   };
 
   getQuestion = () => {
-    getQuestion().then(data => {
+    getQuestion(this.props.match.params.id).then(data => {
+      console.log(data);
+
       this.setState({
         questions: data
       });
@@ -29,7 +31,7 @@ export class Question extends React.PureComponent {
   componentDidMount() {
     console.log(this.props);
 
-    // this.getQuestion(topicId);
+    this.getQuestion();
   }
 
   render() {
@@ -40,27 +42,11 @@ export class Question extends React.PureComponent {
           <textarea />
         </div>
         <h2 className="title">Topic title</h2>
-        <div className="questionBlock">
-          <span>question</span>
-          <textarea
-            id={1}
-            rows={5}
-            name="answer"
-            placeholder="Write your answer"
-          />
-        </div>
-        <div className="questionBlock">
-          <span>question</span>
-          <textarea
-            id={2}
-            rows={5}
-            name="answer"
-            placeholder="Write your answer"
-          />
-          <button className="saveButton assesment" onClick={this.setAnswer}>
-            save{" "}
-          </button>
-        </div>
+        {this.question}
+
+        <button className="saveButton assesment" onClick={this.setAnswer}>
+          save
+        </button>
       </div>
     );
   }
@@ -71,4 +57,20 @@ export class Question extends React.PureComponent {
     answer.push({ id: 1, answer: document.getElementById(1).value });
     console.log(answer);
   };
+
+  get question() {
+    return this.state.questions.map(qes => {
+      return (
+        <div className="questionBlock" key={qes.id}>
+          <span>{qes.questionText}</span>
+          <textarea
+            id={qes.id}
+            rows={5}
+            name="answer"
+            placeholder="Write your answer"
+          />
+        </div>
+      );
+    });
+  }
 }
