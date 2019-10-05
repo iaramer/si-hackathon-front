@@ -25,7 +25,6 @@ export class TopicsPage extends React.PureComponent {
   }
 
   render() {
-    console.log(this.state.topic);
     return (
       <div className="workspace__start">
         <span className="discription">Select topic</span>
@@ -43,8 +42,11 @@ export class TopicsPage extends React.PureComponent {
   get topic() {
     return this.state.topics.map(topic => {
       return (
-        <Link to={`/topic/${topic.id}`}>
-          <ProjectCard key={topic.id} name={topic.title} body={topic.body} />
+        <Link to={`/topic/${topic.id}`} key={topic.id}>
+          <ProjectCard 
+            key={topic.id} 
+            name={topic.title} 
+            body={topic.body} />
         </Link>
       );
     });
