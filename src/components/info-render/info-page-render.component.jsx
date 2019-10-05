@@ -14,7 +14,7 @@ class InfoPageRender extends Component {
   getMaterials = id => {
 		getMaterials(id).then(data => {
 			console.log(data);
-			
+      
 			this.setState({
 				materials: data
 			});
@@ -45,7 +45,7 @@ class InfoPageRender extends Component {
               Learn
           </button>
 
-          <Link to="/question" >
+          <Link to={`/topic/${id}/question`}>
             <button className="start_button assesment">
               Exams
             </button>

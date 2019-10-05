@@ -14,7 +14,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={StartPage} />
           <Route path='/language/:langId/topics/:examId' component={TopicsPage} />
-          <Route path='/question' component={Question} />
+          <Route path='/topic/:id/question' component={Question} />
           <Route path='/topic/:id' component={PageInfo} />
         </Switch>
       </React.Fragment>
