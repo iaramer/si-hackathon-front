@@ -63,7 +63,7 @@ export class StartPage extends React.PureComponent {
 
 	get exams() {
 		return this.state.languages.map(language => 
-				<Link to={`/language:${language.id}/topics:${this.state.examId}`} key={language.id}>
+				<Link to={`/language/${language.id}/topics/${this.state.examId}`} key={language.id}>
 					<ProjectCard
 						key={language.id}
 						name={language.name}

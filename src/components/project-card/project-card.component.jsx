@@ -6,7 +6,7 @@ export const ProjectCard = props => {
   const { key, name, body } = props;
 
   return (
-    <div className="card">
+    <div className="card" key={key}>
       <div className="name_container">
         <span className="name"> {name}</span>
       </div>
