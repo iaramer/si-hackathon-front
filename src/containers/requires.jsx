@@ -23,8 +23,17 @@ export const getQuestion = topicId => {
 };
 
 export const postAnswer = (topicId, body) => {
-  return fetch(`${url}/questions?topicId=${topicId}`, { method: "POST", body })
-    .then(response => response.json())
+  console.log(body);
+  return fetch(`${url}/evaluatedAnswers`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  })
+    .then(response => {
+      return response.json();
+    })
     .then(result => result)
     .catch(error => new Error(error));
 };
