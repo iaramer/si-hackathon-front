@@ -3,7 +3,7 @@
     flex-direction: row;
     margin: 60px;
     justify-content: space-between;
-
+    
 
     &__leftside {
         width: 40%;
@@ -15,9 +15,14 @@
         img {
             width: 400px;
             height: 400px;
-            text-align: center
-        }
-        
+            text-align: center;
+
+            @media (max-width: 758px) {
+                width: 200px;
+                height: 200px;     
+            }
+                  
+        }        
     }
 
     &__rightside {
@@ -34,4 +39,12 @@
             text-align: center;
         }   
     }
+    
+    &-description {
+        border-top: 25px solid #76cdd8;
+    }
+}
+
+.workspace__start:first-child {
+    border-bottom: 2px solid red;
 }

@@ -28,3 +28,10 @@ export const postAnswer = (topicId, body) => {
     .then(result => result)
     .catch(error => new Error(error));
 };
+
+export const getMaterials = topicId => {
+  return fetch(`${url}/materials?topicId=${topicId}`, { method: "GET" })
+    .then(response => response.json())
+    .then(result => result)
+    .catch(error => new Error(error));
+};

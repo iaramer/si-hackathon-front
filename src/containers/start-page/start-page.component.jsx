@@ -1,8 +1,6 @@
 import * as React from "react";
 import { getLanguages } from "../requires";
 import { Link } from "react-router-dom";
-
-
 import "./start-page.scss";
 import { ProjectCard } from "../../components/project-card/project-card.component";
 
