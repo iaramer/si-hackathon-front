@@ -29,7 +29,7 @@ export class TopicsPage extends React.PureComponent {
   render() {
     return (
       <div className="workspace__start">
-        <span className="discription">Select topic</span>
+        <h3 className="discription">Select topic</h3>
         <div className="containerCard">
           {this.state.topics.length ? this.topic : this.noTopic}
         </div>

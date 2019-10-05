@@ -9,16 +9,13 @@ import "./material.scss";
 
 class Materials extends Component {
   render() {
-    const { materials } = this.props;
+    const { materials,matLink } = this.props;
     console.log(materials[0].description)
     return ( 
       <div className = "material">
         <h1 className="material-text"> {materials[0].description} </h1> 
         <span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptas sunt praesentium incidunt laborum omnis voluptatum 
-          molestiae animi velit harum. Sequi repudiandae corrupti culpa
-          nesciunt, esse eligendi voluptate a expedita quam.
+        {matLink}
         </span>
       </div>
     )
