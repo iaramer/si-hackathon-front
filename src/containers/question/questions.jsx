@@ -23,8 +23,9 @@ export class Question extends React.Component {
     });
   };
 
-  postAnswer = body => {
-    postAnswer(this.props.match.params.id, body).then(data => {
+  postAnswer = (body) => {
+    postAnswer(body).then(data => {
+      console.log(data)
       this.setState({
         answers: data
       });
@@ -64,11 +65,9 @@ export class Question extends React.Component {
             />
           </div>
 
-        <button className="saveButton assesment" onClick={this.setAnswer}>
-          save
-        </button>
         <div>
-          {this.state.answers.map(answer => {
+          {this.state.answers.length ? 
+            this.state.answers.map(answer => {
             return (
               <div key={answer.questionId} className='resultBlock'>
                 <h3>{answer.questionId}</h3>
@@ -76,13 +75,19 @@ export class Question extends React.Component {
                 <span>Response rating {answer.markText}</span>
               </div>
             );
-          })}
+          }) : null}
         </div>
-      </div>
+          <h2 className="title">Topic title</h2>
+            {this.question}
+
+           <button className="saveButton assesment" onClick={this.setAnswer}>
+              save
+          </button> 
+          </div>
     );
   }
 
-  setAnswer = (e, id) => {
+  setAnswer = () => {
     const textareaList = document.querySelectorAll("textarea");
     const mass = [...textareaList];
     const answer = [];
@@ -94,10 +99,11 @@ export class Question extends React.Component {
       e.id === 'name' ? 
         body.studentName = e.value :
       answer.push({ answer: e.value, questionId: e.id })
-      body.answer = answer;
+      body.answers = answer;
     
     })  
-    this.postAnswer(body);
+    console.log(body)
+    this.postAnswer(body)
   }
 
   get question() {
