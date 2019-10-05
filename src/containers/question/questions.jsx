@@ -1,37 +1,40 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 
-import { getQuestion } from "../requires";
+import { getQuestion, postAnswer } from "../requires";
 import "./question.scss";
 
-export class Question extends React.PureComponent {
+export class Question extends React.Component {
   state = {
     questions: [],
-    answer: []
+    answers: []
   };
 
   getQuestion = () => {
     getQuestion(this.props.match.params.id).then(data => {
-      console.log(data);
-
       this.setState({
         questions: data
       });
     });
   };
 
-  // postAnswer = (body) => {
-  //   getQuestion(body).then(data => {
-  //     this.setState({
-  //       answer: data
-  //     });
-  //   });
-  // };
+  postAnswer = body => {
+    postAnswer(this.props.match.params.id, body).then(data => {
+      console.log(data);
+      this.setState({
+        answers: data
+      });
+    });
+  };
 
   componentDidMount() {
     console.log(this.props);
 
     this.getQuestion();
+  }
+  componentWillUpdate(prevProps, prevState) {
+    if (prevState.answers !== this.state.answers) {
+      console.log(this.state.answers);
+    }
   }
 
   render() {
@@ -47,6 +50,17 @@ export class Question extends React.PureComponent {
         <button className="saveButton assesment" onClick={this.setAnswer}>
           save
         </button>
+        <div>
+          {this.state.answers.map(answer => {
+            return (
+              <div key={answer.questionId} className='resultBlock'>
+                <h3>{answer.questionId}</h3>
+                <span>Percent of correct answer {answer.mark}%</span>
+                <span>Response rating {answer.markText}</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -55,7 +69,22 @@ export class Question extends React.PureComponent {
     console.log(document.getElementById(1).value);
     const answer = [];
     answer.push({ id: 1, answer: document.getElementById(1).value });
+
     console.log(answer);
+    const body = {
+      answers: [
+        {
+          answer: "ghh",
+          questionId: "2"
+        },
+        {
+          answer: "ghh",
+          questionId: "2"
+        }
+      ],
+      studentName: "Mike"
+    };
+    this.postAnswer(body);
   };
 
   get question() {

@@ -37,3 +37,9 @@
   align-self: flex-start;
   cursor: pointer;
 }
+
+.resultBlock {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
